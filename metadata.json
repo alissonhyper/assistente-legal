@@ -1,0 +1,6 @@
+{
+  "name": "Assistente Legal Reis & Moraes",
+  "description": "Aplicativo web para atendentes de escritório de advocacia previdenciária.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
