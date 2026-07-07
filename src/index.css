@@ -1,1 +1,8 @@
 @import "tailwindcss";
+/* Remove o contorno padrão de clique forçado pelos navegadores nos botões do menu */
+button:focus, 
+button:active,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}

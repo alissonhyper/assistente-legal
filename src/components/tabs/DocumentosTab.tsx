@@ -39,6 +39,21 @@ const DOCS_RURAIS_BASE = [
   'CadÚnico (caso esteja inscrita) ou documentos que indiquem endereço rural'
 ];
 
+const OPCOES_BENEFICIOS = [
+  'Ainda não definido',
+  'Aposentadoria Rural',
+  'Aposentadoria Híbrida',
+  'Tempo de Contribuição e Urbana',
+  'LOAS - Deficiente',
+  'LOAS - Idoso',
+  'Incapacidade - Urbano',
+  'Incapacidade - Rural',
+  'Maternidade - Urbano',
+  'Maternidade - Rural',
+  'Pensão por Morte - Urbano',
+  'Pensão por Morte - Rural'
+];
+
 export default function DocumentosTab({ activeCliente, onUpdateCliente }: DocumentosTabProps) {
   const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -149,9 +164,11 @@ export default function DocumentosTab({ activeCliente, onUpdateCliente }: Docume
           <select 
             value={activeCliente.beneficio}
             onChange={(e) => onUpdateCliente({...activeCliente, beneficio: e.target.value, progresso: 0, checkedDocs: [], excludedDocs: []})}
-            className="border border-slate-300 rounded px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-500 bg-slate-50"
+            className="border border-slate-300 rounded px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-500 bg-slate-50 cursor-pointer"
           >
-            <option value={activeCliente.beneficio}>{activeCliente.beneficio}</option>
+            {OPCOES_BENEFICIOS.filter(ben => ben !== 'Ainda não definido').map((ben) => (
+              <option key={ben} value={ben}>{ben}</option>
+            ))}
           </select>
           <div className="px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">
             Sugestão da IA: {activeCliente.beneficio}
