@@ -88,7 +88,7 @@ export default function TranscricaoTab() {
         
         let textoSimulado = "";
         if (canalAtivo === 'escritorio') {
-          textoSimulado = "Áudio processado (Escritório):\nBom dia, doutora. Eu vim aqui porque me falaram que eu já posso me aposentar. Eu trabalhei na roça a vida toda, desde os meus 12 anos lá no interior de Minas. Nunca tive carteira assinada, mas tenho as notas de produtor rural no meu nome, a escritura do pedacinho de terra e o cadastro do sindicato... Será que já dá pra dar entrada?";
+          textoSimulado = "— Sempre trabalhei em terra dos outros. O serviço que faço é no plantio e na colheita mesmo. Já tem mais de sete anos que tô nessa mesma fazenda trabalhando. A gente planta milho, feijão e mandioca. Nunca mexi com essas coisas de política não, nem fui conselheiro tutelar, e também nunca tive comércio no meu nome. Nem prefeitura, nem Estado nuca trabalhei. Agora, sobre trabalhar fora da roça... bem, antes dos anos 2000, eu fui pra Belo Horizonte tentar uma vida melhor. Fiquei um tempo lá, inclusive meu único filho nasceu em BH. Lá eu tive a carteira de trabalho assinada. Não sei se isso vai me atrapalhar agora...\n\n— Contrato de comodato no papel eu não tenho não, é tudo no combinado de boca. O que eu colho, eu divido com o dono da terra. Mas ele é gente boa, já me deu até a cópia dos documentos da terra dele pra eu trazer aqui.\n\n— Moro com quem? Eu moro com a minha irmã, Maria de Jesus, e trabalho com ela também. Ela já é até aposentada como rural. Meu filho mesmo é só aquele de BH, foi criado pra lá.\n\n— Dos papéis que tenho, eu trouxe os documentos da terra e minha identidade, só isso ta bom não?\n\n— Não tem problema não. Assim que eu chegar em casa eu tiro uma foto e mando no WhatsApp pra vocês. Fico então esperando a senhora mandar o áudio dizendo se aquele meu trabalho de carteira assinada lá atrás vai dar algum problema, tá bom? Muito obrigado pela atenção.";
         } else if (canalAtivo === 'whatsapp') {
           textoSimulado = "Áudio processado (WhatsApp):\n[Áudio 1] Oi doutora, tudo bem? Aqui é a Dona Maria.\n[Áudio 2] Doutora, eu tô te mandando as fotos dos meus documentos aí no WhatsApp, a minha certidão de casamento e umas notas fiscais antigas de quando eu plantava feijão.\n[Áudio 3] Eu queria ver se tem como dar entrada na aposentadoria rural, eu fiz 55 anos mês passado e a coluna não aguenta mais...";
         } else if (canalAtivo === 'externo') {
@@ -108,9 +108,11 @@ export default function TranscricaoTab() {
       const isNovoTexto = transcricao !== ultimoTextoResumido;
 
       const resumosEscritorio = [
-        "Atendimento presencial (Escritório). Cliente busca informações sobre aposentadoria rural. Relata trabalho na lavoura desde os 12 anos no interior de Minas Gerais, sem histórico de vínculos na CTPS. Possui notas de produtor rural, escritura da terra e vínculo sindical, que servem como início de prova material. Realizada triagem inicial da documentação.",
-        "Triagem presencial no escritório. Cliente pretende requerer aposentadoria rural. Informa labor rural desde a infância (12 anos), sem registros urbanos. Comprometer-se-á a apresentar escritura, notas de produtor e comprovante do sindicato. O caso encontra-se em fase de análise de viabilidade para dar entrada no INSS.",
-        "Registro de atendimento presencial. Demanda: Aposentadoria Rural. Cliente com histórico agrícola desde os 12 anos em MG. Apresentou indícios de prova material (notas de produtor, escritura, filiação sindical). Ausência de vínculos urbanos na carteira de trabalho. Necessário aprofundar análise documental para protocolo."
+        "Relato Completo de Atendimento (Escritório):\nO cliente busca orientações sobre aposentadoria rural e relata labor contínuo há mais de sete anos na mesma fazenda, cultivando milho, feijão e mandioca. Informa que não possui contrato de comodato formalizado em papel, tratando-se de parceria de meeiro apalavrada (divide a colheita com o dono da terra). O grupo familiar é composto por ele e sua irmã, Maria de Jesus, com quem reside e trabalha, sendo ela já aposentada pelo regime rural. O cliente declarou expressamente nunca ter exercido mandato político, cargo público ou possuído comércio.\n\nO ponto de maior atenção no caso é um vínculo urbano formal (carteira assinada) na cidade de Belo Horizonte, constituído antes do ano 2000, época em que também teve seu único filho (que permaneceu na capital).\n\nDocumentação apresentada presencialmente: RG e cópia dos documentos da terra (fornecidos pelo proprietário). Restou acordado que o cliente enviará os demais documentos via WhatsApp e aguardará o retorno do escritório, via áudio, com o parecer jurídico sobre o impacto do vínculo urbano em seu pedido.",
+        
+        "Resumo Estruturado para ADVBOX:\n• Perfil e Atividade: Trabalhador rural em terras de terceiros há mais de 7 anos. Cultiva milho, feijão e mandioca. Regime de comodato verbal (meeiro).\n• Grupo Familiar: Reside e labora com a irmã (já aposentada rural). Possui um filho residente em BH.\n• Histórico Profissional: Nega atividades políticas, públicas ou empresariais. Possui registro CLT anterior aos anos 2000 em Belo Horizonte.\n• Documentação Física: Entregou cópia do RG e documentos da propriedade rural. Restante será enviado via WhatsApp.\n• Ação Requerida (Pendência): Analisar o impacto do vínculo CLT antigo na aposentadoria rural e enviar áudio explicativo/parecer ao cliente via WhatsApp confirmando a viabilidade do caso.",
+        
+        "Ficha de Triagem Rápida - Aposentadoria Rural:\nCliente atua como meeiro (comodato verbal) há mais de 7 anos e trabalha junto com a irmã (já aposentada rural). Negou possuir vínculos políticos ou empresariais.\n\n⚠️ PONTO DE ATENÇÃO: Possui registro em carteira assinada em Belo Horizonte antes dos anos 2000. O único filho nasceu e reside lá.\n\n📄 STATUS DOS DOCUMENTOS: Deixou RG e docs da terra físicos no escritório. Restante pendente de envio pelo cliente via WhatsApp.\n\n🎯 PRÓXIMO PASSO DA EQUIPE: Avaliar se a CTPS urbana inviabiliza o benefício e gravar áudio no WhatsApp dando o retorno jurídico ao cliente."
       ];
 
       const resumosWhatsapp = [
@@ -129,17 +131,12 @@ export default function TranscricaoTab() {
       if (canalAtivo === 'whatsapp') arrayAtual = resumosWhatsapp;
       if (canalAtivo === 'externo') arrayAtual = resumosExterno;
 
-      // Usando "processado" minúsculo para garantir que pegue em qualquer cenário simulado
-      if (!transcricao.toLowerCase().includes("processado")) {
-        novoResumo = `Resumo gerado com IA [Canal: ${canalAtivo}]: O cliente relatou os fatos descritos na transcrição manual. É necessário realizar a triagem completa dos documentos e verificar qual é o benefício mais adequado conforme o relato registrado pelo atendente.`;
+      // Simplificando a checagem para pegar sempre nosso resumo focado
+      if (isNovoTexto || !melhorar) {
+        novoResumo = arrayAtual[0];
       } else {
-        if (isNovoTexto || !melhorar) {
-          novoResumo = arrayAtual[0];
-        } else {
-          // Navega de forma circular pelas 3 opções do array atual
-          const proximoIndice = resumos.length % 3;
-          novoResumo = arrayAtual[proximoIndice];
-        }
+        const proximoIndice = resumos.length % 3;
+        novoResumo = arrayAtual[proximoIndice];
       }
 
       if (isNovoTexto || !melhorar) {
